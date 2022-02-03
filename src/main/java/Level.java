@@ -22,4 +22,10 @@ public class Level {
             throw new WrongFieldException(i, j);
         levelArray.get(i).get(j).increment();
     }
+    public Field getValue(int i, int j){
+        return levelArray.get(i).get(j);
+    }
+    public void makeNull(int i, int j){
+        levelArray.get(i).get(j).makeNull();
+    }
 }
