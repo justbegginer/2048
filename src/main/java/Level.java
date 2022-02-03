@@ -17,15 +17,20 @@ public class Level {
     }
 
     public void incrementValue(int i, int j){
-        if (i >= levelArray.size() || j >= levelArray.size() ||
-        i < 0 || j < 0)
-            throw new WrongFieldException(i, j);
+        isCorrectIndexes(i, j);
         levelArray.get(i).get(j).increment();
     }
     public Field getValue(int i, int j){
+        isCorrectIndexes(i, j);
         return levelArray.get(i).get(j);
     }
     public void makeNull(int i, int j){
+        isCorrectIndexes(i, j);
         levelArray.get(i).get(j).makeNull();
+    }
+    private void isCorrectIndexes(int i, int j){
+        if (i >= levelArray.size() || j >= levelArray.size() ||
+                i < 0 || j < 0)
+            throw new WrongFieldException(i, j);
     }
 }
